@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .footer{
      background: #FE9148;
      margin-top: auto;
@@ -8,10 +9,19 @@
      column-count: 3;
      left: 0px;
      top: 851px;
+=======
+.footer {
+  background: #fe9148;
+  margin-top: auto;
+  padding-top: 3em;
+  width: 100%;
+  color: white;
+  column-count: 3;
+  position: absolute;
+>>>>>>> 66cf18da47c778d36bd6dc3b75fbe3bf982aa7d0
 }
 
-.copyright{
-     text-align: center;
-     align-items: center;
+.copyright {
+  text-align: center;
+  align-items: center;
 }
-

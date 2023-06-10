@@ -10,9 +10,10 @@ export default function Layout() {
       <div className={styles.container}>
         <NavBar />
       </div>
-      <section>
+      <section className={styles.main}>
         <Outlet />
       </section>
+      <Footer />
     </div>
   );
 }
