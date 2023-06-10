@@ -1,0 +1,18 @@
+.footer{
+     background: #FE9148;
+     margin-top: auto;
+     padding-top: 3em;
+     width: 100%;
+     color:white;
+     position:relative;
+     column-count: 3;
+     position: absolute;
+     left: 0px;
+     top: 851px;
+}
+
+.copyright{
+     text-align: center;
+     align-items: center;
+}
+
