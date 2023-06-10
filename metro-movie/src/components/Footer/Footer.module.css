@@ -1,8 +1,15 @@
 .footer{
      background: #FE9148;
      margin-top: auto;
-     padding: 8px;
+     padding-top: 3em;
      width: 100%;
      color:white;
      position:relative;
+     column-count: 3;
 }
+
+.copyright{
+     text-align: center;
+     display: inline;
+}
+
