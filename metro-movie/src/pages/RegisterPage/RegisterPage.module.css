@@ -1,106 +1,44 @@
-.register{
-    position: absolute;
-width: 364px;
-height: 668px;
-left: calc(50% - 364px/2);
-top: 193px;
-
-background: #363635;
-box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
-border-radius: 30px;
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+}
+.register {
+  width: 100%;
+  max-width: 600px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  background: #363635;
+  box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
 }
 
-.label1{
-    
-position: absolute;
-width: 210px;
-height: 38px;
-left: 57px;
-top: 218px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 800;
-font-size: 32px;
-line-height: 38px;
-/* identical to box height */
-
-
-color: #FFFDED;
+.title {
+  color: #fffded;
 }
 
-.inputn{
-    
-position: absolute;
-width: 295px;
-height: 51px;
-left: 57px;
-top: 310px;
-
-background:#FFFDED;
+.redirect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fffded;
+  gap: 12px;
+  margin-top: 32px;
 }
 
-.inpute{
-    position: absolute;
-width: 295px;
-height: 51px;
-left: 57px;
-top: 407px;
+.linkbtn {
+  background-color: transparent;
+  border: 0;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 21px;
 
-background:#FFFDED
+  color: #fe9148;
 }
-
-.inputp{
-    
-position: absolute;
-width: 295px;
-height: 51px;
-left: 57px;
-top: 498px;
-
-background:#FFFDED
-}
-
-.registrar{
-    position: absolute;
-width: 295px;
-height: 51px;
-left: 57px;
-top: 595px;
-
-background: #FE9148;
-border-radius: 30px;
-
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 800;
-font-size: 18px;
-line-height: 21px;
-/* identical to box height */
-
-text-align: center;
-letter-spacing: 0.08em;
-
-color: #FFFDED;
-}
-
-.linkbtn{
-    position: absolute;
-width: 295px;
-height: 21px;
-left: 57px;
-top: 751px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 800;
-font-size: 18px;
-line-height: 21px;
-/* identical to box height */
-
-text-align: center;
-letter-spacing: 0.08em;
-
-color: #FFFDED;
+.linkbtn:hover {
+  color: #fffded;
 }
