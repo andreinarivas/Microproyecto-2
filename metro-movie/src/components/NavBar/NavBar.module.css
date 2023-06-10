@@ -1,0 +1,7 @@
+.nav_bar {
+  height: fit-content;
+  background-color: #fe9148;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+}
