@@ -1,0 +1,41 @@
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+}
+
+.inner {
+  height: inherit;
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+.carousel_item {
+  height: 100%;
+  width: 100%;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.pointer_container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 10px;
+}
+
+.pointer {
+  width: 16px;
+  border-radius: 50px;
+  border: 0;
+  background-color: #fe9148;
+  color: #fe9148;
+}
+
+.pointer:active {
+  background-color: #fffded;
+}
+.pic {
+  width: 100%;
+}

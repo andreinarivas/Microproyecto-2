@@ -29,6 +29,7 @@
 }
 
 .menu {
+  z-index: 10;
   overflow: hidden;
   background-color: #363635;
   position: absolute;
