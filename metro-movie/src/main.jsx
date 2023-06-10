@@ -8,6 +8,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import ReservePage from "./pages/ReservePage/ReservePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import MovieInfo from "./pages/MovieInfoPage/MovieInfo";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,6 +21,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/reserve" element={<ReservePage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path = "/movie" element = {<MovieInfo/>}/>
+          <Route path = "/profile" element = {<ProfilePage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
