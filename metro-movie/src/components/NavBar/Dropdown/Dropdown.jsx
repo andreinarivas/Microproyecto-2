@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Dropdown.module.css";
+import foto from "./dropdown.png";
 
 export default function Dropdown() {
   const [open, setOpen] = useState(false);
@@ -8,16 +9,16 @@ export default function Dropdown() {
   };
   return (
     <div className={styles.dropdown}>
-      <button onClick={handleOpen}>
-        <img src="./dropdown.png" />
+      <button className={styles.m_icon} onClick={handleOpen}>
+        <img className={styles.icon} src={foto} />
       </button>
       {open ? (
         <ul className={styles.menu}>
           <li className={styles.menu_item}>
-            <button>Inicio</button>
+            <button className={styles.button}>Inicio</button>
           </li>
           <li className={styles.menu_item}>
-            <button>Ingresar</button>
+            <button className={styles.button}>Ingresar</button>
           </li>
         </ul>
       ) : null}
