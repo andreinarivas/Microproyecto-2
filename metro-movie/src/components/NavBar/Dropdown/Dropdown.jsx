@@ -17,7 +17,7 @@ export default function Dropdown() {
         <ul className={styles.menu}>
           <li className={styles.menu_item}>
             <Link to="/">
-              <button className={styles.button}>Ingresar</button>
+              <button className={styles.button}>Inicio</button>
             </Link>
           </li>
           <li className={styles.menu_item}>
