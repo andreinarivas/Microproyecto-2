@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./pages/Layout";
 
-<<<<<<< HEAD
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,7 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   
   </React.StrictMode>,
 )
-=======
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -25,4 +23,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
->>>>>>> 0ef266f183b31e4863be30dbdeaf77afd6a63545
