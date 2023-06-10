@@ -7,9 +7,8 @@ export default function Layout() {
   return (
     <div>
         <main>
-
       <NavBar />
-      <section>
+      <section className="w-screen h-fit ">
         <Outlet />
       </section>
       <Footer/>

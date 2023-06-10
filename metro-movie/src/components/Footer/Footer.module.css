@@ -6,6 +6,9 @@
      color:white;
      position:relative;
      column-count: 3;
+     position: absolute;
+     left: 0px;
+     top: 851px;
 }
 
 .copyright{
