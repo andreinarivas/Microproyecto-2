@@ -6,6 +6,7 @@
 
 .button {
   width: 100%;
+  max-width: 500px;
   height: 40px;
   padding: 0 44px;
   border-radius: 30px;

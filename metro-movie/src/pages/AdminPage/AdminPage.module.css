@@ -1,0 +1,25 @@
+.page {
+  color: #fffded;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+  gap: 56px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
