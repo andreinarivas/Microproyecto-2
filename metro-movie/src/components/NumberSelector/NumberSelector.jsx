@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./NumberSelector.module.css";
 
-export default function NumberSelector() {
-  const [number, setNumber] = useState(0);
+export default function NumberSelector({ number, setNumber }) {
   const handleDecrease = (newNumber) => {
     if (newNumber <= 0) {
       return 0;
