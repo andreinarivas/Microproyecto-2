@@ -3,15 +3,34 @@ import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import ButtonOutlined from "../../components/ButtonOutlined/ButtonOutlined";
 import styles from "./LoginPage.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginWithEmailAndPassword } from "../../firebase/auth-service";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+const navigate = useNavigate()
+const handleSignInWithGoogle = async () => {
+    await signInWithGoogle()
+  }
+ const [formData, setFormData] = useState({
+    email:'',
+    password:''
+ })
 
-  const handleSubmit = (e) => {
+ const handleOnChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({
+        ...formData,
+        [name]: value,
+
+    })
+  }
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
+    const {email,password} = formData;
+    await loginWithEmailAndPassword(email,password);
+    navigate("/");   // esto es para que despues de que se registre lo lleve al home page
   };
   return (
     <div className={styles.page}>
@@ -25,6 +44,7 @@ export default function LoginPage() {
             placeholder="youremail@gmail.com"
             id="email"
             name="email"
+            onChange = {handleOnChange}
           />
           <Input
             label="Ingrese su Contraseña "
@@ -33,10 +53,11 @@ export default function LoginPage() {
             placeholder="*******"
             id="password"
             name="password"
+            onChange = {handleOnChange}
           />
           <Button display="Ingresar" />
         </form>
-        <ButtonOutlined display="Iniciar sesion con Google" />
+        <ButtonOutlined display="Iniciar sesion con Google" onClick={handleSignInWithGoogle} />
         <div className={styles.redirect}>
           <label htmlFor="link_login">¿No tienes cuenta?</label>
           <Link to="/register">

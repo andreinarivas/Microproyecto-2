@@ -10,6 +10,7 @@ import ReservePage from "./pages/ReservePage/ReservePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import MovieInfo from "./pages/MovieInfoPage/MovieInfo";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -19,10 +20,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route element={<HomePage />} path="/" />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/reserve" element={<ReservePage />} />
+          <Route path="/reserve" element={<PrivateRoute> <ReservePage /> </PrivateRoute>}/>
           <Route path="/admin" element={<AdminPage />} />
-          <Route path = "/movie" element = {<MovieInfo/>}/>
-          <Route path = "/profile" element = {<ProfilePage/>}/>
+          <Route path = "/movie" element = {<PrivateRoute> <MovieInfo/> </PrivateRoute>}/>
+          <Route path = "/profile" element = {<PrivateRoute> <ProfilePage/> </PrivateRoute>}/>
+          
         </Route>
       </Routes>
     </BrowserRouter>
