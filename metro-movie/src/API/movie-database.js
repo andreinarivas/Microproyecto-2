@@ -29,3 +29,14 @@ export async function get_search(query) {
     params: { api_key: api_key, query: query },
   });
 }
+
+export async function get_movie(movieid) {
+  return axiosInstance.get(`movie/${movieid}`, {
+    params: { api_key: api_key },
+  });
+}
+export async function get_actors(movieid) {
+  return axiosInstance.get(`movie/${movieid}/credits`, {
+    params: { api_key: api_key },
+  });
+}

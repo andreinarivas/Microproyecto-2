@@ -10,19 +10,28 @@ import ReservePage from "./pages/ReservePage/ReservePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import MovieInfo from "./pages/MovieInfoPage/MovieInfo";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import {
+  ADMIN_URL,
+  HOME_URL,
+  LOGIN_URL,
+  MOVIE_DETAIL_URL,
+  PROFILE_URL,
+  REGISTER_URL,
+  RESERVE_URL,
+} from "./constants/URLS";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route element={<HomePage />} path="/" />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/reserve" element={<ReservePage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path = "/movie" element = {<MovieInfo/>}/>
-          <Route path = "/profile" element = {<ProfilePage/>}/>
+          <Route element={<HomePage />} path={HOME_URL} />
+          <Route path={LOGIN_URL} element={<LoginPage />} />
+          <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route path={RESERVE_URL()} element={<ReservePage />} />
+          <Route path={ADMIN_URL} element={<AdminPage />} />
+          <Route path={MOVIE_DETAIL_URL()} element={<MovieInfo />} />
+          <Route path={PROFILE_URL} element={<ProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
