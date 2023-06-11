@@ -1,70 +1,77 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+}
+.pic_container {
+  height: 40%;
+  color: #fffded;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 700px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  background: #363635;
+  box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
 .card {
-    width: 300px;
-    height: 400px;
-    box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    overflow: hidden;
-    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-    transform-style: preserve-3d;
-    color: #fffded;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.pic {
+  width: 100%;
+  overflow: hidden;
+}
+
+.infomovie {
+  color: #fffded;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  vertical-align: middle;
+}
+
+.title {
+  font-size: 36px;
+}
+h2 {
+  font-size: 24px;
+}
+p {
+  font-size: small;
+}
+
+.title_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .wrapper {
+    max-width: 100%;
   }
-  .card:hover .card_back {
-    transform: rotateY(180deg);
+  .card {
+    flex-direction: row;
   }
-  .card:hover .card_front {
-    transform: rotateY(0deg);
+  .pic_container {
+    height: 100%;
+    width: auto;
   }
-  .card_front {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    transition: transform 0.7s ease-out;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding:30px;
-  }
-  .card_back {
-    position: absolute;
-    background: #ffa733;
-    object-fit: cover;
-    border-radius: 10px;
-    width: 300px;
-    height: 400px;
-    box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    z-index: 10;
-    transition: transform 0.7s ease-out;
-  }
-  .wrapper{
-    align-items: center;
-  }
-  .pic {
+  .infomovie {
+    height: fit-content;
     width: 100%;
-    overflow: hidden;
   }
-
-  .infomovie{
-    color:#fffded;
-    font-size: 20px;
-    float: right;
-    margin-right: 100px;
-    position:relative;
-    left: 100px;;
-    display: inline;
-    padding:30px;
-    vertical-align: middle;
-
-  }
-
-  .title{
-    font-size: 40px;
-  }
+}
