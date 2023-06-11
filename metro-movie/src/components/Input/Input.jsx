@@ -1,14 +1,7 @@
 import React from "react";
 import styles from "./Input.module.css";
 
-export default function Input({
-  type,
-  placeholder,
-  label,
-  id,
-  onChange,
-  value,
-}) {
+export default function Input({ type, placeholder, label, id, setInput }) {
   return (
     <div className={styles.container}>
       <label htmlFor={id} className={styles.label}>
@@ -19,8 +12,7 @@ export default function Input({
         type={type}
         placeholder={placeholder}
         id={id}
-        onChange={onChange}
-        value={value}
+        onInput={(e) => setInput(e.target.value)}
       ></input>
     </div>
   );
