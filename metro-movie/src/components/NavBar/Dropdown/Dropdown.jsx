@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Dropdown.module.css";
 import foto from "./dropdown.png";
+import { HOME_URL, LOGIN_URL } from "../../../constants/URLS";
 
 export default function Dropdown() {
   const [open, setOpen] = useState(false);
@@ -15,10 +17,14 @@ export default function Dropdown() {
       {open ? (
         <ul className={styles.menu}>
           <li className={styles.menu_item}>
-            <button className={styles.button}>Inicio</button>
+            <Link to={HOME_URL}>
+              <button className={styles.button}>Inicio</button>
+            </Link>
           </li>
           <li className={styles.menu_item}>
-            <button className={styles.button}>Ingresar</button>
+            <Link to={LOGIN_URL}>
+              <button className={styles.button}>Ingresar</button>
+            </Link>
           </li>
         </ul>
       ) : null}

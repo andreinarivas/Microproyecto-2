@@ -1,6 +1,6 @@
 .card {
-  width: 173px;
-  height: 256px;
+  width: 240px;
+  height: 360px;
   box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   overflow: hidden;
@@ -16,26 +16,31 @@
 }
 .card_front {
   position: absolute;
-  width: 173px;
-  height: 256px;
+  width: 240px;
+  height: 360px;
   box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
-  overflow: hidden;
   backface-visibility: hidden;
   transition: transform 0.7s ease-out;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+}
+.movie_title {
+  font-size: x-large;
+  color: #fe9148;
 }
 .card_back {
   position: absolute;
-  background: #ffa733;
+  background: #fe9148;
   object-fit: cover;
   border-radius: 10px;
-  width: 173px;
-  height: 256px;
+  width: 240px;
+  height: 360px;
   box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   overflow: hidden;
@@ -47,4 +52,12 @@
 .pic {
   width: 100%;
   overflow: hidden;
+}
+.subtitle {
+  font-weight: 600;
+  font-size: medium;
+}
+
+.link {
+  color: #fffded;
 }

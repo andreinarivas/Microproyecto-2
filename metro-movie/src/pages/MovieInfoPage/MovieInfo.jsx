@@ -1,0 +1,84 @@
+import React, { useEffect } from "react";
+import styles from "./MovieInfo.module.css";
+import Button from "../../components/Button/Button";
+import FavIcon from "../../components/FavIcon/FavIcon";
+import { useMovies } from "../../hooks/useMovies";
+import { useParams } from "react-router-dom";
+
+export default function MovieInfo() {
+  const { movieid } = useParams();
+  const { isLoading, movie, getMovie, actors, getActors } = useMovies();
+
+  useEffect(() => {
+    if (!isLoading && movieid) {
+      getMovie(movieid);
+      getActors(movieid);
+    }
+  }, [getMovie]);
+
+  if (isLoading) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+  if (!isLoading && !movie) {
+    return (
+      <div>
+        <h1>NO SE PUDO HALLAR LA INFORMACION</h1>
+      </div>
+    );
+  }
+  if (!isLoading) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
+          <div className={styles.card}>
+            <div className={styles.pic_container}>
+              <img
+                className={styles.pic}
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+              />
+            </div>
+
+            <div className={styles.infomovie}>
+              <div className={styles.title_container}>
+                <h1 className={styles.title}>{movie.title}</h1>
+                <FavIcon />
+              </div>
+              <h2>{movie.release_date}</h2>
+              <h3>Sinopsis</h3>
+              <p>{movie.overview}</p>
+              <div className={styles.movie_detail}>
+                <div className={styles.detail_container}>
+                  <h4>Actores:</h4>
+                  {actors.slice(0, 4).map((a) => {
+                    return <p>{a.name}</p>;
+                  })}
+                </div>
+                <div className={styles.detail_container}>
+                  <h4>Idiomas:</h4>
+                  {movie.spoken_languages.map((lan) => {
+                    return <p>{lan.english_name}</p>;
+                  })}
+                </div>
+                <div className={styles.detail_container}>
+                  <h4>Duracion:</h4>
+                  <p>{movie.runtime} minutos </p>
+                </div>
+                <div className={styles.detail_container}>
+                  <h4>Genero:</h4>
+                  {movie.genres.map((g) => {
+                    return <p>{g.name}</p>;
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+          <Button display="Reservar" />
+        </div>
+      </div>
+    );
+  }
+}

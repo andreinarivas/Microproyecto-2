@@ -4,8 +4,7 @@
   align-items: center;
   padding: 48px;
 }
-
-.login {
+.container {
   width: 100%;
   max-width: 600px;
   height: fit-content;
@@ -18,28 +17,7 @@
   border-radius: 30px;
 }
 
-.title {
-  color: #fffded;
-}
-
-.redirect {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fffded;
-  gap: 12px;
-  margin-top: 32px;
-}
-
-.linkbtn {
-  background-color: transparent;
-  border: 0;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #fe9148;
-}
-.linkbtn:hover {
+.select {
+  font-size: medium;
   color: #fffded;
 }
