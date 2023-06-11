@@ -59,7 +59,20 @@ p {
   align-items: center;
 }
 
-@media only screen and (min-width: 600px) {
+.movie_detail {
+  height: fit-content;
+  display: grid;
+  grid-template: 1fr 1fr/ 50% 50%;
+  gap: 12px;
+}
+.detail_container {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media only screen and (min-width: 750px) {
   .wrapper {
     max-width: 100%;
   }
@@ -67,8 +80,7 @@ p {
     flex-direction: row;
   }
   .pic_container {
-    height: 100%;
-    width: auto;
+    width: 60%;
   }
   .infomovie {
     height: fit-content;

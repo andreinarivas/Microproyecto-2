@@ -10,6 +10,15 @@ import ReservePage from "./pages/ReservePage/ReservePage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import MovieInfo from "./pages/MovieInfoPage/MovieInfo";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import {
+  ADMIN_URL,
+  HOME_URL,
+  LOGIN_URL,
+  MOVIE_DETAIL_URL,
+  PROFILE_URL,
+  REGISTER_URL,
+  RESERVE_URL,
+} from "./constants/URLS";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -17,14 +26,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route element={<HomePage />} path="/" />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/reserve" element={<PrivateRoute> <ReservePage /> </PrivateRoute>}/>
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path = "/movie" element = {<PrivateRoute> <MovieInfo/> </PrivateRoute>}/>
-          <Route path = "/profile" element = {<PrivateRoute> <ProfilePage/> </PrivateRoute>}/>
-          
+          <Route element={<HomePage />} path={HOME_URL} />
+          <Route path={LOGIN_URL} element={<LoginPage />} />
+          <Route path={REGISTER_URL} element={<RegisterPage />} />
+          <Route path={RESERVE_URL()} element={<PrivateRoute> <ReservePage /></PrivateRoute>} />
+          <Route path={ADMIN_URL} element={<AdminPage />} />
+          <Route path={MOVIE_DETAIL_URL()} element={<PrivateRoute> <MovieInfo/> </PrivateRoute>} />
+          <Route path={PROFILE_URL} element={<PrivateRoute> <ProfilePage/> </PrivateRoute>} />
+
         </Route>
       </Routes>
     </BrowserRouter>

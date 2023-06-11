@@ -32,11 +32,11 @@
 }
 .movie_title {
   font-size: x-large;
-  color: #ffa733;
+  color: #fe9148;
 }
 .card_back {
   position: absolute;
-  background: #ffa733;
+  background: #fe9148;
   object-fit: cover;
   border-radius: 10px;
   width: 240px;
@@ -56,4 +56,8 @@
 .subtitle {
   font-weight: 600;
   font-size: medium;
+}
+
+.link {
+  color: #fffded;
 }
