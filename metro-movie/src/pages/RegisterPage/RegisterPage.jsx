@@ -2,16 +2,39 @@ import React, { useState } from "react";
 import styles from "./RegisterPage.module.css";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ButtonOutlined from "../../components/ButtonOutlined/ButtonOutlined";
+import { registerWithEmailAndPassword, signInWithGoogle } from "../../firebase/auth-service";
+
 
 export default function RegisterPage() {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [name, setName] = useState("");
+ const navigate = useNavigate()
+  const handleSignInWithGoogle = async () => {
+    await signInWithGoogle()
+    
+  }
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData]= useState({
+    name: "",
+    email: "",
+    password:""
+  })
+
+  const handleOnChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({
+        ...formData,
+        [name]: value,
+
+    })
+  }
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
+    const {email,password, ...extraData} = formData;
+    await registerWithEmailAndPassword(email, password, extraData);
+    navigate("/");   // esto es para que despues de que se registre lo lleve al home page
   };
   return (
     <div className={styles.page}>
@@ -22,14 +45,12 @@ export default function RegisterPage() {
             label="Ingrese su nombre"
             type="text"
             id="name"
-            onChange={(e) => setName(e.target.value)}
+            onChange={handleOnChange}
             placeholder="Nombre Completo"
-            value={name}
           />
           <Input
             label="Ingrese su correo"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleOnChange}
             type="email"
             placeholder="youremail@gmail.com"
             id="email"
@@ -37,8 +58,7 @@ export default function RegisterPage() {
           />
           <Input
             label="Ingrese su contraseña"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
+            onChange={handleOnChange}
             type="password"
             placeholder="*******"
             id="password"
@@ -46,6 +66,7 @@ export default function RegisterPage() {
           />
           <Button display="Registrar Usuario" />
         </form>
+        <ButtonOutlined display="Registrar con Google" onClick={handleSignInWithGoogle}/>
         <div className={styles.redirect}>
           <label htmlFor="link_login">¿Ya tienes cuenta?</label>
           <Link to="/login">
