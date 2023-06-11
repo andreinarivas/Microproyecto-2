@@ -2,7 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import styles from "./HomePage.module.css";
 import Carousel, { CarouselItem } from "../../components/Carousel/Carousel";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import Input from "../../components/Input/Input";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import Button from "../../components/Button/Button";
 import { useMovies } from "../../hooks/useMovies";
 import { get_search } from "../../API/movie-database";
@@ -64,7 +64,7 @@ export default function HomePage() {
         })}
       </Carousel>
       <div className={styles.search_bar}>
-        <Input
+        <SearchBar
           id="busqueda"
           type="text"
           placeholder="Nombre..."
