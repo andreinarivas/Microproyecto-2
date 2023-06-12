@@ -34,6 +34,22 @@ export async function getReserved(movieid) {
     }
   } catch (error) {}
 }
+export async function getSold(movieid) {
+  try {
+    const ref = doc(db, "funciones", movieid);
+    const docInfo = await getDoc(ref);
+    if (docInfo.exists()) {
+      const data = docInfo.data();
+      if (data.ocupadas.length >= 20) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  } catch (error) {}
+}
 
 export async function updateReserved(movieid, info) {
   try {
@@ -48,7 +64,6 @@ export async function updateReserved(movieid, info) {
 
 export async function createReserva(info) {
   try {
-    console.log("info", info);
     const reserva = collection(db, "reservas");
     await setDoc(doc(reserva, info.cedula), info);
   } catch (error) {

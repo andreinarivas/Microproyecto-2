@@ -27,7 +27,6 @@ export default function Dropdown() {
   };
 
   const handleUser = () => {
-    console.log("!!user", !!user);
     if (!!user) {
       return (
         <ul className={styles.menu}>

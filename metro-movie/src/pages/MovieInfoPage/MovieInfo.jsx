@@ -6,12 +6,14 @@ import { useMovies } from "../../hooks/useMovies";
 import { Link, useParams } from "react-router-dom";
 import { useUserContext } from "../../contexts/UserContext";
 import { RESERVE_URL } from "../../constants/URLS";
+import { getSold } from "../../firebase/firestore/firestore-manage";
 
 export default function MovieInfo() {
   const { movieid } = useParams();
   const { isLoading, movie, getMovie, actors, getActors } = useMovies();
   const [fav, setFavorite] = useState(false);
   const { user, setUser } = useUserContext();
+  const [soldOut, setSoldOut] = useState(true);
 
   const dateInPast = function (firstDate, secondDate) {
     if (firstDate.setHours(0, 0, 0, 0) <= secondDate.setHours(0, 0, 0, 0)) {
@@ -21,16 +23,30 @@ export default function MovieInfo() {
     return false;
   };
 
+  async function handleSoldOut() {
+    const result = await getSold(movieid);
+
+    if (result) {
+      setSoldOut(true);
+    } else {
+      setSoldOut(false);
+    }
+  }
+
   function handleRelease() {
     const firstDate = new Date();
     const secondDate = new Date(movie.release_date);
+
     if (!dateInPast(firstDate, secondDate)) {
-      console.log("hola");
-      return (
-        <Link to={RESERVE_URL(movieid)}>
-          <Button display="Reservar" />
-        </Link>
-      );
+      if (!soldOut) {
+        return (
+          <Link to={RESERVE_URL(movieid)} className={styles.link}>
+            <Button display="Reservar" />
+          </Link>
+        );
+      } else {
+        return <Button display="Agotado" />;
+      }
     } else {
       return <Button display="Proximamente" />;
     }
@@ -42,12 +58,13 @@ export default function MovieInfo() {
     } else {
       setFavorite(false);
     }
-  }, []);
+  }, [soldOut]);
 
   useEffect(() => {
     if (!isLoading && movieid) {
       getMovie(movieid);
       getActors(movieid);
+      handleSoldOut();
     }
   }, [getMovie]);
 

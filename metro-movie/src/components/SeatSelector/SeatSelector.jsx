@@ -21,10 +21,7 @@ export default function SeatSelector({ wan, wanSeats, setSeats, movieid }) {
     const data = await getReserved(movieid);
     setReserved(data);
     setIsLoad(false);
-    console.log(reserved);
   }
-
-  console.log(reserved);
 
   const handleMax = () => {
     if (selSeat < wan) {

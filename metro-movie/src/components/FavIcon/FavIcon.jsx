@@ -20,13 +20,11 @@ export default function FavIcon({ fav, setFav, movie }) {
   }
 
   function changeInfo() {
-    console.log(fav);
     if (fav && !user.favorites.some((f) => movie.id == f.id)) {
       setUser({ ...user, favorites: user.favorites.concat(movie) });
     } else if (!fav) {
       setUser({ ...user, favorites: removeFav() });
     }
-    console.log(movie);
     updateUserFavs(user.id, movie);
   }
 

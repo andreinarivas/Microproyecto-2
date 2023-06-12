@@ -12,7 +12,9 @@ export default function NavBar() {
   return (
     <div className={styles.nav_bar}>
       <div className={styles.title}>MetroMovies</div>
-      <Dropdown />
+      <div className={styles.pointer}>
+        <Dropdown />
+      </div>
     </div>
   );
 }

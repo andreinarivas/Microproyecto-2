@@ -26,7 +26,6 @@ export async function getUserProfile(email) {
     }));
 
     const [user] = users;
-    console.log("user", user);
     return user;
   } else {
     return null;

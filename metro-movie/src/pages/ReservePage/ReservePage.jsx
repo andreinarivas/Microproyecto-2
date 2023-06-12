@@ -19,12 +19,19 @@ export default function ReservePage() {
   const [seat, setSeats] = useState([]);
   const [save, setSave] = useState(false);
   const navigate = useNavigate();
+  const [price, setPrice] = useState(
+    Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000
+  );
 
   const onChange = (event) => {
     const { name, value } = event.target;
 
     setReserveData((oldData) => ({ ...oldData, [name]: value }));
   };
+
+  function handlePrice() {
+    return price * number;
+  }
 
   function handleSave() {
     if (save) {
@@ -47,6 +54,7 @@ export default function ReservePage() {
       ["n_entradas"]: number,
       ["puestos"]: seat,
       ["movie"]: movie,
+      ["precio"]: price * number,
     }));
     setSave(true);
   }
@@ -54,7 +62,6 @@ export default function ReservePage() {
   async function handleSubmit() {
     const data = await createReserva(reserveData);
     const result = await updateReserved(movieid, reserveData);
-    console.log(reserveData);
     navigate(HOME_URL);
   }
 
@@ -114,6 +121,10 @@ export default function ReservePage() {
           </form>
           <h6 className={styles.select}>Seleccione el numero de entradas:</h6>
           <NumberSelector number={number} setNumber={setNumber} />
+          <div className={styles.price}>
+            <h4>Precio por Entrada: {price}</h4>
+            <h5>Precio Total: {handlePrice()}</h5>
+          </div>
           <SeatSelector
             wan={number}
             wanSeats={seat}
