@@ -62,7 +62,6 @@ export function useMovies() {
     try {
       setIsLoading(true);
       const { data } = await get_actors(movieid);
-      console.log(data);
       setActors(data.cast);
       setIsLoading(false);
 

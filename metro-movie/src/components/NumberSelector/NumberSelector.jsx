@@ -16,27 +16,30 @@ export default function NumberSelector({ number, setNumber }) {
       return newNumber + 1;
     }
   };
+
   useEffect(() => {}, [number]);
   return (
-    <div className={styles.container}>
-      <h4>{number}</h4>
-      <div className={styles.button_container}>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setNumber(handleDecrease(number));
-          }}
-        >
-          -
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setNumber(handleIncrease(number));
-          }}
-        >
-          +
-        </button>
+    <div>
+      <div className={styles.container}>
+        <h4>{number}</h4>
+        <div className={styles.button_container}>
+          <button
+            className={styles.button}
+            onClick={() => {
+              setNumber(handleDecrease(number));
+            }}
+          >
+            -
+          </button>
+          <button
+            className={styles.button}
+            onClick={() => {
+              setNumber(handleIncrease(number));
+            }}
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -71,6 +71,10 @@ p {
   flex-direction: column;
   gap: 12px;
 }
+.link {
+  color: #fffded;
+  text-decoration: none;
+}
 
 @media only screen and (min-width: 750px) {
   .wrapper {

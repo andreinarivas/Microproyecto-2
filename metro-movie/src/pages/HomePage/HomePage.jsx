@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 import Carousel, { CarouselItem } from "../../components/Carousel/Carousel";
 import MovieCard from "../../components/MovieCard/MovieCard";
@@ -80,7 +80,6 @@ export default function HomePage() {
         />
 
         <div className={styles.movie_container}>
-          {console.log(search.length != 0)}
           {result()}
           <div className={styles.movie_show}>
             {search.map((movie) => (

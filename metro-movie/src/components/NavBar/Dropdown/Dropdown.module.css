@@ -5,12 +5,14 @@
 .icon {
   height: 40px;
   object-fit: fit;
+    cursor: pointer;
 }
 .m_icon {
   background-color: transparent;
   border: none;
 }
 .button {
+  cursor: pointer;
   background-color: transparent;
   border: none;
   color: #fffded;

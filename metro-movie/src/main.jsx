@@ -19,6 +19,7 @@ import {
   REGISTER_URL,
   RESERVE_URL,
 } from "./constants/URLS";
+import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -28,10 +29,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route element={<HomePage />} path={HOME_URL} />
           <Route path={LOGIN_URL} element={<LoginPage />} />
           <Route path={REGISTER_URL} element={<RegisterPage />} />
-          <Route path={RESERVE_URL()} element={<ReservePage />} />
+          <Route path={RESERVE_URL()} element={<PrivateRoute> <ReservePage /></PrivateRoute>} />
           <Route path={ADMIN_URL} element={<AdminPage />} />
-          <Route path={MOVIE_DETAIL_URL()} element={<MovieInfo />} />
-          <Route path={PROFILE_URL} element={<ProfilePage />} />
+          <Route path={MOVIE_DETAIL_URL()} element={<PrivateRoute> <MovieInfo/> </PrivateRoute>} />
+          <Route path={PROFILE_URL} element={<PrivateRoute> <ProfilePage/> </PrivateRoute>} />
+
         </Route>
       </Routes>
     </BrowserRouter>
