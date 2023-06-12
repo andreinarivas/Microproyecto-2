@@ -2,6 +2,11 @@
   width: 100%;
   height: fit-content;
 }
+.search_bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .pic_container {
   width: 100%;
@@ -30,7 +35,7 @@
   gap: 24px;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 600px) {
   .pic {
     width: 100%;
   }

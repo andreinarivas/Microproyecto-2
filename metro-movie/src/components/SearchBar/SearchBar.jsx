@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Input.module.css";
+import styles from "./SearchBar.module.css";
 
-export default function Input({ type, placeholder, label, id, onChange }) {
+export default function Input({ type, placeholder, label, id, setInput }) {
   return (
     <div className={styles.container}>
       <label htmlFor={id} className={styles.label}>
@@ -12,8 +12,7 @@ export default function Input({ type, placeholder, label, id, onChange }) {
         type={type}
         placeholder={placeholder}
         id={id}
-        onChange={onChange}
-        name={id}
+        onInput={(e) => setInput(e.target.value)}
       ></input>
     </div>
   );

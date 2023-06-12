@@ -21,3 +21,20 @@
   font-size: medium;
   color: #fffded;
 }
+.movie_detail {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+.pic {
+  width: 40%;
+  border-radius: 30px;
+}
+.title {
+  color: #fffded;
+  font-size: xx-large;
+}
+.price {
+  color: #fffded;
+}
