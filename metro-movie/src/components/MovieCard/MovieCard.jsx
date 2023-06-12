@@ -4,11 +4,6 @@ import styles from "./MovieCard.module.css";
 import { MOVIE_DETAIL_URL } from "../../constants/URLS";
 
 export default function MovieCard({ movie, genre }) {
-  const genres = movie.genre_ids.map((g) => {
-    const gOb = genre.find(({ id }) => id === g);
-    return gOb;
-  });
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
@@ -26,10 +21,8 @@ export default function MovieCard({ movie, genre }) {
               <p>{movie.original_language}</p>
             </div>
             <div>
-              <h6 className={styles.subtitle}>Genero:</h6>
-              {genres.map((g) => {
-                return <p>{g.name}</p>;
-              })}
+              <h6 className={styles.subtitle}>Sinopsis:</h6>
+              <p>{movie.overview}</p>
             </div>
           </div>
         </Link>
