@@ -3,8 +3,9 @@ import styles from "./MovieInfo.module.css";
 import Button from "../../components/Button/Button";
 import FavIcon from "../../components/FavIcon/FavIcon";
 import { useMovies } from "../../hooks/useMovies";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useUserContext } from "../../contexts/UserContext";
+import { RESERVE_URL } from "../../constants/URLS";
 
 export default function MovieInfo() {
   const { movieid } = useParams();
@@ -14,7 +15,6 @@ export default function MovieInfo() {
 
   useEffect(() => {
     if (user.favorites.some((f) => movieid == f.id)) {
-      console.log("effect2", fav);
       setFavorite(true);
     } else {
       setFavorite(false);
@@ -89,7 +89,9 @@ export default function MovieInfo() {
               </div>
             </div>
           </div>
-          <Button display="Reservar" />
+          <Link to={RESERVE_URL(movieid)}>
+            <Button display="Reservar" />
+          </Link>
         </div>
       </div>
     );
