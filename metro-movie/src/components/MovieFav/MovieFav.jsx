@@ -1,14 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./MovieCard.module.css";
+import styles from "./MovieFav.module.css";
 import { MOVIE_DETAIL_URL } from "../../constants/URLS";
 
-export default function MovieCard({ movie, genre }) {
-  const genres = movie.genre_ids.map((g) => {
-    const gOb = genre.find(({ id }) => id === g);
-    return gOb;
-  });
-
+export default function MovieFav({ movie }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
@@ -27,9 +22,9 @@ export default function MovieCard({ movie, genre }) {
             </div>
             <div>
               <h6 className={styles.subtitle}>Genero:</h6>
-              {/* {genres.map((g) => {
+              {movie.genres.map((g) => {
                 return <p>{g.name}</p>;
-              })} */}
+              })}
             </div>
           </div>
         </Link>

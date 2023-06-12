@@ -1,0 +1,63 @@
+.card {
+  width: 240px;
+  height: 360px;
+  box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  overflow: hidden;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+  color: #fffded;
+}
+.card:hover .card_back {
+  transform: rotateY(180deg);
+}
+.card:hover .card_front {
+  transform: rotateY(0deg);
+}
+.card_front {
+  position: absolute;
+  width: 240px;
+  height: 360px;
+  box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  backface-visibility: hidden;
+  transition: transform 0.7s ease-out;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 24px;
+}
+.movie_title {
+  font-size: x-large;
+  color: #fe9148;
+}
+.card_back {
+  position: absolute;
+  background: #fe9148;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 240px;
+  height: 360px;
+  box-shadow: 0px 3px 6px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  z-index: 10;
+  transition: transform 0.7s ease-out;
+}
+
+.pic {
+  width: 100%;
+  overflow: hidden;
+}
+.subtitle {
+  font-weight: 600;
+  font-size: medium;
+}
+
+.link {
+  color: #fffded;
+}

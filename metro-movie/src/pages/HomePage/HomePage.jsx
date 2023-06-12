@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 import Carousel, { CarouselItem } from "../../components/Carousel/Carousel";
 import MovieCard from "../../components/MovieCard/MovieCard";

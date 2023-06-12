@@ -1,13 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MovieInfo.module.css";
 import Button from "../../components/Button/Button";
 import FavIcon from "../../components/FavIcon/FavIcon";
 import { useMovies } from "../../hooks/useMovies";
 import { useParams } from "react-router-dom";
+import { useUserContext } from "../../contexts/UserContext";
 
 export default function MovieInfo() {
   const { movieid } = useParams();
   const { isLoading, movie, getMovie, actors, getActors } = useMovies();
+  const [fav, setFavorite] = useState(false);
+  const { user, setUser } = useUserContext();
+
+  useEffect(() => {
+    if (user.favorites.some((f) => movieid == f.id)) {
+      console.log("effect2", fav);
+      setFavorite(true);
+    } else {
+      setFavorite(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (!isLoading && movieid) {
@@ -30,6 +42,7 @@ export default function MovieInfo() {
       </div>
     );
   }
+
   if (!isLoading) {
     return (
       <div className={styles.container}>
@@ -45,7 +58,7 @@ export default function MovieInfo() {
             <div className={styles.infomovie}>
               <div className={styles.title_container}>
                 <h1 className={styles.title}>{movie.title}</h1>
-                <FavIcon />
+                <FavIcon fav={fav} setFav={setFavorite} movie={movie} />
               </div>
               <h2>{movie.release_date}</h2>
               <h3>Sinopsis</h3>
