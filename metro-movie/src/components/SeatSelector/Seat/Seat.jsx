@@ -12,7 +12,8 @@ export default function Seat({
 }) {
   const [look, setLook] = useState(0);
 
-  useEffect(() => {}, [look, selSeat]);
+  useEffect(() => {}, [look, selSeat, setSelSeats]);
+
 
   const handleLook = (look) => {
     if (look) {

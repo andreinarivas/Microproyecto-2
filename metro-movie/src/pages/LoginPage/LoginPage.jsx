@@ -4,33 +4,34 @@ import Button from "../../components/Button/Button";
 import ButtonOutlined from "../../components/ButtonOutlined/ButtonOutlined";
 import styles from "./LoginPage.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { loginWithEmailAndPassword } from "../../firebase/auth-service";
+import {
+  loginWithEmailAndPassword,
+  signInWithGoogle,
+} from "../../firebase/auth-service";
 
 export default function LoginPage() {
-const navigate = useNavigate()
-const handleSignInWithGoogle = async () => {
-    await signInWithGoogle()
-  }
- const [formData, setFormData] = useState({
-    email:'',
-    password:''
- })
+  const navigate = useNavigate();
+  const handleSignInWithGoogle = async () => {
+    await signInWithGoogle();
+  };
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
- const handleOnChange = (e) => {
-    const {name, value} = e.target;
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
-        ...formData,
-        [name]: value,
-
-    })
-  }
-
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {email,password} = formData;
-    await loginWithEmailAndPassword(email,password);
-    navigate("/");   // esto es para que despues de que se registre lo lleve al home page
+    const { email, password } = formData;
+    await loginWithEmailAndPassword(email, password);
+    navigate("/"); // esto es para que despues de que se registre lo lleve al home page
   };
   return (
     <div className={styles.page}>
@@ -39,25 +40,26 @@ const handleSignInWithGoogle = async () => {
         <form className={styles.container} onSubmit={handleSubmit}>
           <Input
             label="Ingrese su Correo"
-            value={email}
             type="email"
             placeholder="youremail@gmail.com"
             id="email"
             name="email"
-            onChange = {handleOnChange}
+            onChange={handleOnChange}
           />
           <Input
             label="Ingrese su Contraseña "
-            value={pass}
             type="password"
             placeholder="*******"
             id="password"
             name="password"
-            onChange = {handleOnChange}
+            onChange={handleOnChange}
           />
           <Button display="Ingresar" />
         </form>
-        <ButtonOutlined display="Iniciar sesion con Google" onClick={handleSignInWithGoogle} />
+        <ButtonOutlined
+          display="Iniciar sesion con Google"
+          action={handleSignInWithGoogle}
+        />
         <div className={styles.redirect}>
           <label htmlFor="link_login">¿No tienes cuenta?</label>
           <Link to="/register">

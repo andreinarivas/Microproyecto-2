@@ -6,12 +6,12 @@ import { getStorage } from "firebase/storage";
 import { getFirestore } from "@firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: `${process.env.REACT_APP_APIKEY}`,
-  authDomain: `${process.env.REACT_APP_AUTHDOMAIN}`,
-  projectId: `${process.env.REACT_APP_PROJECTID}`,
-  storageBucket: `${process.env.REACT_APP_STORAGEBUCKET}`,
-  messagingSenderId: `${process.env.REACT_APP_MESSAGINGSENDERID}`,
-  appId: `${process.env.REACT_APP_APPID}`
+  apiKey: "AIzaSyDu-8inJ2BofiWNMl-OX5niSJt0ZbiLP48",
+  authDomain: "metro-movies-bac72.firebaseapp.com",
+  projectId: "metro-movies-bac72",
+  storageBucket: "metro-movies-bac72.appspot.com",
+  messagingSenderId: "699704564499",
+  appId: "1:699704564499:web:df555c5d82dc56d1b658e6",
 };
 
 // Initialize Firebase
@@ -21,4 +21,4 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 export const googleProvider = new GoogleAuthProvider();
-googleProvider.setCustomParameters({prompt:"select_account"});
+googleProvider.setCustomParameters({ prompt: "select_account" });

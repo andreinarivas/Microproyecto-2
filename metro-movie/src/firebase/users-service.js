@@ -1,23 +1,34 @@
-import { collection, setDoc } from "firebase/firestore";
-import {db} from "./firebaseConfig";
+import {
+  doc,
+  addDoc,
+  collection,
+  updateDoc,
+  getDoc,
+  setDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
+import { db } from "./firebaseConfig";
 
-export async function createUserProfile(userId,data){
-    return setDoc(doc(db, 'users',userId),data);
+export async function createUserProfile(userId, data) {
+  return setDoc(doc(db, "users", userId), data);
 }
 
-export async function getUserProfile(email){
-    const useQuery = query (collection(db, 'users'),where("email", "==",email));
-    const results = await getDocs(useQuery);
+export async function getUserProfile(email) {
+  const useQuery = query(collection(db, "users"), where("email", "==", email));
+  const results = await getDocs(useQuery);
 
-    if (results.size > 0){
-        const users = results.docs.map( item => ({
-            ...item.data(),
-            id: item
-        }));
+  if (results.size > 0) {
+    const users = results.docs.map((item) => ({
+      ...item.data(),
+      id: item.id,
+    }));
 
-        const [user] = users;
-        return user;
-    }else{
-        return null;
-    }
+    const [user] = users;
+    console.log("user", user);
+    return user;
+  } else {
+    return null;
+  }
 }

@@ -5,7 +5,7 @@ import Button from "../../components/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import ButtonOutlined from "../../components/ButtonOutlined/ButtonOutlined";
 import { registerWithEmailAndPassword, signInWithGoogle } from "../../firebase/auth-service";
-
+import { HOME_URL } from "../../constants/URLS";
 
 export default function RegisterPage() {
  const navigate = useNavigate()
@@ -34,7 +34,7 @@ export default function RegisterPage() {
     e.preventDefault();
     const {email,password, ...extraData} = formData;
     await registerWithEmailAndPassword(email, password, extraData);
-    navigate("/");   // esto es para que despues de que se registre lo lleve al home page
+    navigate({HOME_URL});   // esto es para que despues de que se registre lo lleve al home page
   };
   return (
     <div className={styles.page}>
