@@ -13,6 +13,29 @@ export default function MovieInfo() {
   const [fav, setFavorite] = useState(false);
   const { user, setUser } = useUserContext();
 
+  const dateInPast = function (firstDate, secondDate) {
+    if (firstDate.setHours(0, 0, 0, 0) <= secondDate.setHours(0, 0, 0, 0)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  function handleRelease() {
+    const firstDate = new Date();
+    const secondDate = new Date(movie.release_date);
+    if (!dateInPast(firstDate, secondDate)) {
+      console.log("hola");
+      return (
+        <Link to={RESERVE_URL(movieid)}>
+          <Button display="Reservar" />
+        </Link>
+      );
+    } else {
+      return <Button display="Proximamente" />;
+    }
+  }
+
   useEffect(() => {
     if (user.favorites.some((f) => movieid == f.id)) {
       setFavorite(true);
@@ -89,9 +112,7 @@ export default function MovieInfo() {
               </div>
             </div>
           </div>
-          <Link to={RESERVE_URL(movieid)}>
-            <Button display="Reservar" />
-          </Link>
+          {handleRelease()}
         </div>
       </div>
     );

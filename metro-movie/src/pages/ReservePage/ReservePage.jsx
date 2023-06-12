@@ -46,6 +46,7 @@ export default function ReservePage() {
       ...oldData,
       ["n_entradas"]: number,
       ["puestos"]: seat,
+      ["movie"]: movie,
     }));
     setSave(true);
   }

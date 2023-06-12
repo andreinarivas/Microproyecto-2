@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./MovieCard.module.css";
 import { MOVIE_DETAIL_URL } from "../../constants/URLS";
@@ -27,9 +27,9 @@ export default function MovieCard({ movie, genre }) {
             </div>
             <div>
               <h6 className={styles.subtitle}>Genero:</h6>
-              {/* {genres.map((g) => {
+              {genres.map((g) => {
                 return <p>{g.name}</p>;
-              })} */}
+              })}
             </div>
           </div>
         </Link>
